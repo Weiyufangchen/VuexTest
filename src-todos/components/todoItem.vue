@@ -5,7 +5,7 @@
       <input type="checkbox" v-model="todo.complete"/>
       <span>{{todo.title}}</span>
     </label>
-    <button class="btn btn-danger" v-show="isShown" @click="deleteItem">删除</button>
+    <button class="btn btn-danger" v-show="isShow" @click="deleteItem">删除</button>
   </li>
 </template>
 
@@ -14,17 +14,17 @@
     props: ['todo', 'index'],
     data () {
       return {
-        isShown: false,
+        isShow: false,
         libg: '#fff'
       }
     },
     methods: {
       handleStyle (isEnter) {
         if (isEnter) {
-          this.isShown = true
+          this.isShow = true
           this.libg = '#ddd'
         } else {
-          this.isShown = false
+          this.isShow = false
           this.libg = '#fff'
         }
       },
