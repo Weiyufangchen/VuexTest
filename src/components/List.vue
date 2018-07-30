@@ -1,12 +1,19 @@
 <template>
   <ul class="todo-main">
-    <Item/>
+    <Item v-for="(todo, index) in todos" :key="index" :index="index" :todo="todo"/>
   </ul>
 </template>
 
 <script>
+  //获取状态
+  import {mapState} from 'vuex'
   import Item from './Item'
   export default {
+
+    computed: {
+      ...mapState(['todos'])
+    },
+
     components: {
       Item
     }
