@@ -11,11 +11,11 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapGetters} from 'vuex'
   export default {
 
     computed: {
-      completeCount() {
+      /*completeCount() {
         return this.$store.state.todos.reduce((preVal, todo) => preVal + (todo.complete ? 1 : 0), 0)
       },
       totalCount() {
@@ -24,9 +24,14 @@
 
       isCheckAll() {
         return this.completeCount === this.totalCount && this.totalCount > 0
-      },
+      }*/
+      ...mapGetters(['completeCount','totalCount', 'isCheckAll']),
       checkAll: {
+        /*get() {
+          return this.isCheckAll
+        },*/
         get() {
+          // console.log(this);  //this就是这个组件对象
           return this.isCheckAll
         },
         set(value) {
